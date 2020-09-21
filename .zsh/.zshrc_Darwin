@@ -1,0 +1,14 @@
+# zsh-completions(補完機能)の設定
+if [ -e /usr/local/Cellar/zsh-completions/ ]; then
+  fpath=(/usr/local/Cellar/zsh-completions/ $fpath)
+  autoload -U compinit
+  compinit -u
+fi
+
+if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
+  export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+  export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+  alias ls='ls --color=auto'
+else
+  alias ls='ls -G'
+fi
