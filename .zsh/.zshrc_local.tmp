@@ -1,0 +1,13 @@
+# wsl2
+# WindowsPath
+# export PATH="$PATH:/mnt/c/Windows:/mnt/c/Windows/System32"
+
+# Google chrome
+# export PATH="/mnt/c/Program Files (x86)/Google/Chrome/Application:$PATH"
+# export BROWSER=chrome.exe
+
+# VSCode
+# export PATH="/mnt/c/Users/$USER/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
+
+# linuxbrew
+# export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"

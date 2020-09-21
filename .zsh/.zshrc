@@ -1,9 +1,9 @@
 # zshのテーマ
-fpath+=$HOME/.dotfiles/.zsh/pure
+fpath+=$ZDOTDIR/pure
 autoload -U promptinit; promptinit
 prompt pure
 
-export HISTFILE=${HOME}/.zsh_history
+export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=10000
 setopt append_history
@@ -42,3 +42,4 @@ alias rm='rm -i'
 # # load .zshrc_*
 # ------------------------------
 [ -f $ZDOTDIR/.zshrc_`uname`  ] && . $ZDOTDIR/.zshrc_`uname`
+[ -f $ZDOTDIR/.zshrc_local    ] && . $ZDOTDIR/.zshrc_local
