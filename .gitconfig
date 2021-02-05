@@ -1,6 +1,8 @@
 [user]
   name = horikawa.yoshiki
   email = yhorikawa1209@gmail.com
+[core]
+  excludesfile = .gitignore_global
 [color]
   diff = auto
   status = auto
