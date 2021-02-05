@@ -13,9 +13,7 @@ setopt hist_ignore_all_dups
 # ------------------------------
 # alias Setting
 # ------------------------------
-alias ll='ls -lF'
-alias ll='ls -lh'
-alias ll='ls -l'
+alias ll='ls -alF'
 alias la='ls -A'
 
 alias g='git'
