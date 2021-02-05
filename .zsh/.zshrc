@@ -49,6 +49,7 @@ alias d='docker'
 alias dc='docker-compose'
 
 alias c='clear'
+alias ..='cd ..'
 
 alias cp='cp -i'
 alias mv='mv -i'
