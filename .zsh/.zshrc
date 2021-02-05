@@ -1,8 +1,26 @@
-# zshのテーマ
-fpath+=$ZDOTDIR/pure
-autoload -U promptinit; promptinit
-prompt pure
+# ------------------------------
+# Zplug Setting
+# ------------------------------
+source $ZDOTDIR/zplug/init.zsh
 
+zplug "mafredri/zsh-async"
+zplug "sindresorhus/pure"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-history-substring-search"
+
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+zplug load --verbose
+
+# ------------------------------
+# History Setting
+# ------------------------------
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=10000
