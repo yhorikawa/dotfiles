@@ -1,5 +1,10 @@
 # .dotfiles
 
+## install.shを実行する
+```
+sh install.sh
+```
+
 ## cloneする場合
 ```
 git clone --recursive git@github.com:yhorikawa/.dotfiles.git
