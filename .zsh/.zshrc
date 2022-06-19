@@ -1,22 +1,15 @@
 # ------------------------------
-# Zplug Setting
+# Zinit Setting
 # ------------------------------
-source $ZDOTDIR/zplug/init.zsh
+source $ZDOTDIR/zinit/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search"
-
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
-  fi
-fi
-
-zplug load
+zinit light sindresorhus/pure
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-history-substring-search
 
 # ------------------------------
 # History Setting
@@ -60,3 +53,10 @@ alias rm='rm -i'
 # ------------------------------
 [ -f $ZDOTDIR/.zshrc_`uname`  ] && . $ZDOTDIR/.zshrc_`uname`
 [ -f $ZDOTDIR/.zshrc_local    ] && . $ZDOTDIR/.zshrc_local
+
+# ---------------------------------------------------------
+# completion
+# ---------------------------------------------------------
+
+# コマンド補完
+autoload -Uz compinit && compinit
