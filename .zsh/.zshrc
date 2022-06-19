@@ -10,6 +10,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-history-substring-search
+zinit light b4b4r07/enhancd
 
 # ------------------------------
 # History Setting
@@ -20,6 +21,13 @@ export SAVEHIST=10000
 setopt append_history
 setopt share_history
 setopt hist_ignore_all_dups
+
+# ---------------------------------------------------------
+# completion
+# ---------------------------------------------------------
+
+# コマンド補完
+autoload -Uz compinit && compinit
 
 # ------------------------------
 # alias Setting
@@ -53,10 +61,3 @@ alias rm='rm -i'
 # ------------------------------
 [ -f $ZDOTDIR/.zshrc_`uname`  ] && . $ZDOTDIR/.zshrc_`uname`
 [ -f $ZDOTDIR/.zshrc_local    ] && . $ZDOTDIR/.zshrc_local
-
-# ---------------------------------------------------------
-# completion
-# ---------------------------------------------------------
-
-# コマンド補完
-autoload -Uz compinit && compinit
