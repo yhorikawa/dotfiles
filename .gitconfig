@@ -13,6 +13,7 @@
   st = status
   sh = show
   so = remote show origin
+  sw = switch
   ft = fetch
   ps = push origin HEAD
   pl = pull
