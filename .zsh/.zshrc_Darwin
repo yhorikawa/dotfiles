@@ -16,3 +16,11 @@ if [ -d /usr/local/opt/coreutils/libexec/gnubin ]; then
 else
   alias ls='ls -G'
 fi
+
+# asdf
+if [ -e /usr/local/opt/asdf/libexec/ ]; then
+  . /usr/local/opt/asdf/libexec/asdf.sh
+fi
+
+alias pbjq='pbpaste | jq'
+alias -g C='| pbcopy'

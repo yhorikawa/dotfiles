@@ -3,6 +3,7 @@
   email = horikawa441@gmail.com
 [core]
   excludesfile = .gitignore_global
+  editor = vim
 [color]
   diff = auto
   status = auto
