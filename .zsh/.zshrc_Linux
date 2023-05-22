@@ -6,9 +6,4 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-if [ -e /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/ ]; then
-  # zsh-syntax-highlighting.zshの読み込み
-  source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
 alias ls='ls --color=auto'
