@@ -14,6 +14,9 @@ fi
 if [ -d /opt/homebrew/opt/asdf ]; then
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
+if [ -e /usr/local/opt/asdf ]; then
+  . /usr/local/opt/asdf/libexec/asdf.sh
+fi
 
 if type brew &>/dev/null
 then
