@@ -23,12 +23,6 @@ alias -s txt='cat'
 alias -s rb='ruby'
 
 # ------------------------------
-# # load .zshrc_*
-# ------------------------------
-[ -f $ZDOTDIR/.zshrc_`uname`  ] && . $ZDOTDIR/.zshrc_`uname`
-[ -f $ZDOTDIR/.zshrc_local    ] && . $ZDOTDIR/.zshrc_local
-
-# ------------------------------
 # zsh plugins
 # ------------------------------
 zinit wait lucid blockf light-mode for \

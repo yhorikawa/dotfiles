@@ -19,6 +19,12 @@ setopt share_history
 setopt hist_ignore_all_dups
 
 # ------------------------------
+# # load .zshrc_*
+# ------------------------------
+[ -f $ZDOTDIR/.zshrc_`uname`  ] && . $ZDOTDIR/.zshrc_`uname`
+[ -f $ZDOTDIR/.zshrc_local    ] && . $ZDOTDIR/.zshrc_local
+
+# ------------------------------
 # # lazy loading
 # ------------------------------
 zinit wait lucid null for \
