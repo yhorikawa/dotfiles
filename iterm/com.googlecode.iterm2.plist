@@ -827,7 +827,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Jetbrains Mono 13</string>
+			<string>JetBrainsMono-Regular 13</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1599,6 +1599,10 @@
 	</dict>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>ToolbeltTools</key>
+	<array>
+		<string>Command History</string>
+	</array>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>kCPKSelectionViewPreferredModeKey</key>
