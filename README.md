@@ -5,19 +5,11 @@
 sh install.sh
 ```
 
-## cloneする場合
-```
-git clone --recursive git@github.com:yhorikawa/dotfiles.git
-```
-## submoduleのupdate
-```
-git submodule update --init --recursive
-```
-## zshenvに以下を記載
-```
-export ZDOTDIR=$HOME/dotfiles/.zsh
-```
-## zshrc_localを作成
-```
-cp .zshrc_local.tmp .zshrc_local
+## Manual Install Dependencies
+use [Homebrew](https://brew.sh/)
+```bash
+brew install sheldon starship
+brew --cask install wezterm
+brew tap homebrew/cask-fonts
+brew install font-udev-gothic-nf
 ```

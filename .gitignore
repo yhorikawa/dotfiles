@@ -1,1 +1,4 @@
-.ssh
+/zsh/local/**
+!/zsh/local/README.md
+!zsh/local/sample.sync.zsh
+!zsh/local/sample.zsh
