@@ -1,0 +1,27 @@
+syntax enable
+colorscheme Monokai-Dimmed
+set termguicolors
+set number
+set cursorline
+set laststatus=2
+
+set enc=utf-8
+set fenc=utf-8
+
+set autoindent
+
+set visualbell t_vb=
+set noerrorbells
+
+set splitright
+
+set backspace=indent,eol,start
+
+set noswapfile
+set nobackup
+set noundofile
+
+nnoremap j gj
+nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
