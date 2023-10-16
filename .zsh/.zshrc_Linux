@@ -1,9 +1,0 @@
-# zsh-completions(補完機能)の設定
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
-alias ls='ls --color=auto'
