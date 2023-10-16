@@ -1,8 +1,8 @@
 # dotfiles
 
-## install.shを実行する
-```
-sh install.sh
+## setup
+```sh
+bash install.sh
 ```
 
 ## Manual Install Dependencies
