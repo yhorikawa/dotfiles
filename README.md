@@ -6,6 +6,7 @@ bash install.sh
 ```
 
 ## Manual Install Dependencies
+### Mac OS
 use [Homebrew](https://brew.sh/)
 ```bash
 brew install sheldon starship
