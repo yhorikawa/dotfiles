@@ -14,3 +14,8 @@ shell = "bash"
 
 [plugins.starship]
 inline = 'eval "$(starship init bash)"'
+
+[plugins.aliases]
+local = '~/dotfiles/aliases'
+use = ['aliase']
+apply = ['source']

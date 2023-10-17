@@ -31,6 +31,11 @@ apply = ['defer']
 github = 'zsh-users/zsh-syntax-highlighting'
 apply = ['defer']
 
+[plugins.aliases]
+local = '~/dotfiles/aliases'
+use = ['aliase']
+apply = ['defer']
+
 [plugins.dotfiles-sync]
 local = '~/dotfiles/zsh/sync'
 use = ['*.zsh']
