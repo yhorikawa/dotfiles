@@ -10,7 +10,7 @@ bash install.sh
 use [Homebrew](https://brew.sh/)
 ```bash
 brew install sheldon starship
-brew --cask install wezterm
+brew install --cask wezterm
 brew tap homebrew/cask-fonts
 brew install font-udev-gothic-nf
 ```
