@@ -14,13 +14,13 @@ bash/.bashrc                      .bashrc
 
 install_starship() {
     echo "Installing Starship..."
-    sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+    sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes
 }
 
 install_sheldon() {
     echo "Installing Sheldon..."
     curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
-    |  bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
+    |  bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin
 }
 
 # Function to create symbolic links based on provided mappings

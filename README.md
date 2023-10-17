@@ -14,3 +14,13 @@ brew install --cask wezterm
 brew tap homebrew/cask-fonts
 brew install font-udev-gothic-nf
 ```
+
+### vscode devcontainer
+`settings.json`
+```json
+  {
+    "dotfiles.installCommand": "vscode-devcontainer.sh",
+    "dotfiles.repository": "https://github.com/yhorikawa/dotfiles.git",
+    "dotfiles.targetPath": "~/dotfiles"
+  }
+```
