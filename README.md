@@ -15,7 +15,7 @@ brew tap homebrew/cask-fonts
 brew install font-udev-gothic-nf
 ```
 
-### vscode devcontainer
+## vscode devcontainer
 `settings.json`
 ```json
   {
