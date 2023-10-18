@@ -20,7 +20,7 @@ install_starship() {
 install_sheldon() {
     echo "Installing Sheldon..."
     curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
-    |  bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin
+    | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
 }
 
 # Function to create symbolic links based on provided mappings
