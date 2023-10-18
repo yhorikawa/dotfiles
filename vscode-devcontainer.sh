@@ -46,6 +46,14 @@ create_symbolic_links() {
     done
 }
 
+if [ -e $HOME/.zshrc ]; then
+    mv $HOME/.zshrc $HOME/.zshrc_old-$(date "+%FT%T")
+fi
+
+if [ -e $HOME/.bashrc ]; then
+    mv $HOME/.bashrc $HOME/.bashrc_old-$(date "+%FT%T")
+fi
+
 install_starship
 install_sheldon
 create_symbolic_links
