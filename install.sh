@@ -3,15 +3,17 @@
 DOTFILES_DIR=$(pwd)
 
 INSTALL_MAPPINGS="
-zsh/.zshrc                       .zshrc
-bash/.bashrc                     .bashrc
+bash/.bashrc                      .bashrc
+.zshenv                           .zshenv
+.config/zsh/.zprofile             .config/zsh/.zprofile
+.config/zsh/.zshrc                .config/zsh/.zshrc
 .config/starship.toml             .config/starship.toml
 .config/sheldon/zsh/plugins.toml  .config/sheldon/zsh/plugins.toml
 .config/sheldon/bash/plugins.toml .config/sheldon/bash/plugins.toml
 .config/git/ignore                .config/git/ignore
 .config/wezterm/wezterm.lua       .config/wezterm/wezterm.lua
+.config/git/config                .config/git/config
 .vim                              .vim
-git/.gitconfig                    .gitconfig
 "
 
 # Function to create symbolic links based on provided mappings
@@ -38,4 +40,6 @@ create_symbolic_links() {
 
 echo "Creating symbolic links..."
 create_symbolic_links
+echo "Creating \$XDG_CACHE_HOME/zsh directory..."
+mkdir -p "$HOME/.cache/zsh"
 echo "Done!"
