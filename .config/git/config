@@ -25,3 +25,6 @@
   co = checkout
   cb = checkout -b
   gr = grep
+
+[include]
+  path = ~/.config/git/config.local
