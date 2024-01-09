@@ -42,4 +42,6 @@ echo "Creating symbolic links..."
 create_symbolic_links
 echo "Creating \$XDG_CACHE_HOME/zsh directory..."
 mkdir -p "$HOME/.cache/zsh"
+echo "Creating \$XDG_STATE_HOME/zsh directory..."
+mkdir -p "$HOME/.local/state/zsh"
 echo "Done!"
