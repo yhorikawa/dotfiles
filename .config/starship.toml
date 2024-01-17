@@ -120,6 +120,7 @@ Unknown = " "
 Windows = "󰍲 "
 
 [package]
+disabled = true
 symbol = "󰏗 "
 
 [pijul_channel]
