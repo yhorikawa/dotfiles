@@ -37,27 +37,21 @@ use = ['aliase']
 apply = ['defer']
 
 [plugins.dotfiles-sync]
-local = '~/dotfiles/zsh/sync'
+local = '~/dotfiles/zsh/plugins/sync'
 use = ['*.zsh']
 apply = ['source']
 
 [plugins.dotfiles-defer]
-local = '~/dotfiles/zsh/defer'
+local = '~/dotfiles/zsh/plugins/defer'
 use = ['*.zsh']
-apply = ['defer']
-
-[plugins.dotfiles-local-sync]
-local = '~/dotfiles/zsh/local'
-use = ['*.sync.zsh']
-apply = ['source']
-
-[plugins.dotfiles-local-defer]
-local = '~/dotfiles/zsh/local'
-use = ['{!*.sync,*}.zsh']
 apply = ['defer']
 
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
+
+[plugins.local-completions]
+apply = ["fpath"]
+local = "~/.local/share/zsh/completions"
 
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION'
