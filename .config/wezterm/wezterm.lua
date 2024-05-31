@@ -20,8 +20,6 @@ config.font_size = 14
 use_fancy_tab_bar = false
 
 config.window_background_opacity = 0.95
-config.initial_rows = 40
-config.initial_cols = 120
 config.window_background_gradient = {
   colors = { '#002916', '#050633', '#37040e' },
   -- colors = { '#003c29', '#302b63', '#5c243e' },
@@ -45,6 +43,36 @@ config.window_background_gradient = {
       radius = 1.30,
     },
   },
+}
+
+-- We'll use Lua's `if` statement to dynamically set the modifier key based on the OS
+local open_link_modifier = "CTRL" -- Default to "CTRL" for Linux and Windows
+if wezterm.target_triple:find("darwin") then
+  -- If the target is Mac, use "CMD" as the open link modifier
+  open_link_modifier = "CMD"
+end
+config.mouse_bindings = {
+  -- Change the default click behavior so that it only selects
+  -- text and doesn't open hyperlinks
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "NONE",
+    action = wezterm.action.CompleteSelection("PrimarySelection"),
+  },
+
+  -- and make CMD-Click open hyperlinks
+  {
+    event = {Up={streak=1, button="Left"}},
+    mods = open_link_modifier,
+    action = wezterm.action.OpenLinkAtMouseCursor,
+  },
+
+  -- Disable the 'Down' event of CMD-Click to avoid weird program behaviors
+  {
+    event = { Down = { streak = 1, button = 'Left' } },
+    mods = open_link_modifier,
+    action = wezterm.action.Nop,
+  }
 }
 
 -- and finally, return the configuration to wezterm

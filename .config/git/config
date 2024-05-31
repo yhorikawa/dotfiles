@@ -25,6 +25,7 @@
   co = checkout
   cb = checkout -b
   gr = grep
+  delete-merged-branches = !git branch --merged | grep -vE '^\\*|master$|main$|develop$' | xargs -I % git branch -d %
 
 [include]
   path = ~/.config/git/config.local
