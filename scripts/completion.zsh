@@ -10,3 +10,7 @@ fi
 if (( ${+commands[sheldon]} )); then
   sheldon completions --shell zsh > "$XDG_DATA_HOME"/zsh/completions/_sheldon
 fi
+
+if (( ${+commands[docker]} )); then
+  docker completion zsh > "$XDG_DATA_HOME"/zsh/completions/_docker
+fi
