@@ -1,4 +1,4 @@
 .DS_Store
 .tool-versions
-.mise.toml
+mise.local.toml
 *.code-workspace
