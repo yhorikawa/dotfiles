@@ -140,3 +140,6 @@ symbol = " "
 
 [scala]
 symbol = " "
+
+[terraform]
+symbol = " "
