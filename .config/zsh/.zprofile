@@ -6,3 +6,7 @@ fi
 if [[ -f ~/.orbstack/shell/init.zsh ]]; then
     source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 fi
+
+if (which mise > /dev/null); then
+  eval "$(mise activate zsh --shims)"
+fi
