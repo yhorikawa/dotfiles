@@ -26,9 +26,10 @@ bash install.sh
 
 インストールスクリプトは以下の順序で実行されます:
 
-1. `01_symlinks.sh` - 設定ファイルのシンボリックリンク作成
-2. `02_claude.sh` - Claude設定のハードリンク作成
-3. `03_xdg.sh` - XDG準拠のディレクトリ作成
+1. `01_xdg.sh` - XDG準拠のディレクトリ作成
+2. `02_symlinks.sh` - 設定ファイルのシンボリックリンク作成
+3. `03_claude.sh` - Claude設定のハードリンク作成
+4. `04_gemini.sh` - Gemini設定のハードリンク作成
 
 ### 手動インストール依存関係
 
@@ -59,9 +60,10 @@ dotfiles/
 ├── mise.toml               # mise設定
 ├── scripts/
 │   ├── installs/           # インストールスクリプト群
-│   │   ├── 01_symlinks.sh  # シンボリックリンク作成
-│   │   ├── 02_claude.sh    # Claude設定
-│   │   └── 03_xdg.sh       # XDGディレクトリ作成
+│   │   ├── 01_xdg.sh       # XDGディレクトリ作成
+│   │   ├── 02_symlinks.sh  # シンボリックリンク作成
+│   │   ├── 03_claude.sh    # Claude設定
+│   │   └── 04_gemini.sh    # Gemini設定
 │   └── install_utils.sh    # 共通ユーティリティ
 ├── .config/                # 各種設定ファイル
 ├── zsh/                    # Zsh設定

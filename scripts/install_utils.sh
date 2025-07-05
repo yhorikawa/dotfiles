@@ -35,3 +35,40 @@ initialize_environment_vars() {
 		readonly HOME_DIR="${HOME}"
 	fi
 }
+
+create_hard_link() {
+	local src="$1"
+	local dst="$2"
+
+	if [[ -e "$dst" ]] || [[ -L "$dst" ]]; then
+		log_info "Existing file detected at $dst. Skipping... (To update, manually remove the file and re-run)"
+		return 0
+	fi
+
+	if ln "${DOTFILES_DIR}/${src}" "$dst"; then
+		log_info "Created hard link: $src -> $dst"
+	else
+		log_error "Failed to create hard link: $src -> $dst"
+		return 1
+	fi
+}
+
+create_symbolic_link() {
+	local src="$1"
+	local dst="$2"
+	local full_dst="${HOME_DIR}/${dst}"
+
+	ensure_directory_exists "$(dirname "$full_dst")"
+
+	if [[ -e "$full_dst" ]] || [[ -L "$full_dst" ]]; then
+		log_info "Existing file detected at $full_dst. Skipping... (To update, manually remove the file and re-run)"
+		return 0
+	fi
+
+	if ln -s "${DOTFILES_DIR}/${src}" "$full_dst"; then
+		log_info "Created symbolic link: $src -> $dst"
+	else
+		log_error "Failed to create symbolic link: $src -> $dst"
+		return 1
+	fi
+}
