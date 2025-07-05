@@ -2,3 +2,4 @@
 .tool-versions
 mise.local.toml
 *.code-workspace
+**/.claude/settings.local.json
