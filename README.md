@@ -79,12 +79,20 @@ make lint
 
 # シェルスクリプトのフォーマット
 make format
+
+# GitHub Actionsワークフローのリント
+make lint-github-actions
+
+# 全てのリント実行
+make lint-all
 ```
 
 ### 使用ツール
 
 - **shellcheck**: シェルスクリプトの静的解析
 - **shfmt**: シェルスクリプトのフォーマット
+- **actionlint**: GitHub Actionsワークフローのリント
+- **ghalint**: GitHub Actionsワークフローのセキュリティチェック
 - **mise**: 開発ツールのバージョン管理
 - **sheldon**: Zshプラグイン管理
 - **starship**: プロンプトカスタマイズ

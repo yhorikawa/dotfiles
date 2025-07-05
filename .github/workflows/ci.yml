@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint and Format Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      
+      - name: Setup mise
+        uses: jdx/mise-action@5cb1df66ed5e1fb3c670ea0b62fd17a76979826a # v2.3.1
+
+      - name: Run shellcheck
+        run: make lint
+      
+      - name: Run GitHub Actions linting
+        run: make lint-github-actions
+      
+      - name: Check formatting
+        run: |
+          make format
+          if ! git diff --exit-code; then
+            echo "::error::Code is not formatted. Please run 'make format' and commit the changes."
+            exit 1
+          fi

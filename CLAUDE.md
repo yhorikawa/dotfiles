@@ -43,15 +43,29 @@ bash install.sh
 ### シェルスクリプトの品質チェック
 
 ```bash
-make lint        # shellcheckによるリント
-make format      # shfmtによるフォーマット
+make lint                  # shellcheckによるリント
+make format                # shfmtによるフォーマット
+make lint-github-actions   # GitHub Actionsワークフローのリント (actionlint, ghalint)
+make lint-all              # 全てのリント実行
 ```
 
 ### 依存関係管理
 
-- `mise.toml`: shellcheck、shfmtの管理
+- `mise.toml`: shellcheck、shfmt、actionlint、ghalintの管理
 - `Brewfile`: Homebrewパッケージの管理
 
 ### ワークフロー
 
 - シェルスクリプトを編集した場合はタスク実行後にlintとformatを実行しエラーを修正してください。
+- GitHub Actionsワークフローを編集した場合はタスク実行後にlint-github-actionsを実行しエラーを修正してください。
+
+## CI/CD
+
+### GitHub Actions
+
+- `.github/workflows/ci.yml`: 自動的にlint/formatチェックと動作保証テストを実行
+  - Push・Pull Request時に自動実行
+  - shellcheckによるシェルスクリプトのリント
+  - actionlint・ghalintによるGitHub Actionsワークフローのリント
+  - shfmtによるフォーマットチェック
+  - インストールスクリプトの構文チェック
