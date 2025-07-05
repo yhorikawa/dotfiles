@@ -75,5 +75,14 @@ config.mouse_bindings = {
   }
 }
 
+config.keys = {
+  { key = 'a', mods = 'CTRL', action = wezterm.action.SendString '\x01' }, -- Ctrl-A (行の先頭に移動)
+  { key = 'e', mods = 'CTRL', action = wezterm.action.SendString '\x05' }, -- Ctrl-E (行の末尾に移動)
+  { key = 'LeftArrow', mods = 'ALT', action = wezterm.action.SendString '\x1bb' }, -- Alt+Left (単語を左に移動)
+  { key = 'RightArrow', mods = 'ALT', action = wezterm.action.SendString '\x1bf' }, -- Alt+Right (単語を右に移動)
+  { key = 'LeftArrow', mods = 'CMD', action = wezterm.action.SendString '\x01' }, -- Cmd+Left (行の先頭に移動)
+  { key = 'RightArrow', mods = 'CMD', action = wezterm.action.SendString '\x05' }, -- Cmd+Right (行の末尾に移動)
+}
+
 -- and finally, return the configuration to wezterm
 return config
