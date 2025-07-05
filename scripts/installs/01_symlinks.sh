@@ -5,7 +5,7 @@ set -euo pipefail
 # Source common utilities
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly SCRIPT_DIR
-# shellcheck source=../install_utils.sh
+# shellcheck source=/dev/null
 source "$(dirname "$SCRIPT_DIR")/install_utils.sh"
 
 # Initialize common variables

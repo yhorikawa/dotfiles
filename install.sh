@@ -26,6 +26,7 @@ main() {
 			log "Running $(basename "$script")..."
 
 			# Source the script to load its functions
+			# shellcheck source=/dev/null
 			source "$script"
 
 			# Call the unified install function
