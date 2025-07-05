@@ -24,9 +24,3 @@
 ### 禁止
 
 * `rm`: 代わりに`trash`を使ってください。
-
-## タスクの終了時
-
-* タスクが終わったら以下のコマンドでコストを表示してください：
-  * 現在のセッションコスト: `bunx ccusage@latest session --json | jq -r '.sessions[] | select(.sessionId == "-workspaces-api-mock-server") | .totalCost'`
-  * 今日の合計コスト: `bunx ccusage@latest --json | jq --arg d "$(date +%F)" '.daily[] | select(.date == $d)'`
