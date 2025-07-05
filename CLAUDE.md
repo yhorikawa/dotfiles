@@ -73,15 +73,18 @@ make lint-all              # 全てのリント実行
 ## 使用ツール
 
 ### 開発環境
+
 - **mise**: 開発ツールのバージョン管理 (shellcheck、shfmt、actionlint、ghalint)
 - **sheldon**: Zshプラグイン管理
 - **starship**: プロンプトカスタマイズ
 
 ### 品質チェック
+
 - **shellcheck**: シェルスクリプトの静的解析
 - **shfmt**: シェルスクリプトのフォーマット
 - **actionlint**: GitHub Actionsワークフローのリント
 - **ghalint**: GitHub Actionsワークフローのセキュリティチェック
 
 ### パッケージ管理
+
 - **Homebrew**: macOSでのパッケージ管理
