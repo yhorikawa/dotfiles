@@ -12,6 +12,9 @@ alias dc="docker compose"
 alias dcu="docker compose up --build -d"
 alias dcrs="docker compose restart"
 
+alias cc="claude"
+alias ccd="claude --dangerously-skip-permissions"
+
 if [ $(uname) = "Darwin" ]; then
     alias ls='ls -G '
 elif [ $(uname) = "Linux" ]; then
