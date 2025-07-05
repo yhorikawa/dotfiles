@@ -30,7 +30,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 2. `02_claude.sh`: Claude設定のハードリンク作成
 3. `03_xdg.sh`: XDG準拠のディレクトリ作成
 
-各スクリプトは`install()`関数を実装し、共通ユーティリティを`install_utils.sh`から読み込みます。
+各スクリプトは`install()`関数を実装し、共通ユーティリティを`scripts/install_utils.sh`から読み込みます。
 
 ## 開発コマンド
 
@@ -69,3 +69,19 @@ make lint-all              # 全てのリント実行
   - actionlint・ghalintによるGitHub Actionsワークフローのリント
   - shfmtによるフォーマットチェック
   - インストールスクリプトの構文チェック
+
+## 使用ツール
+
+### 開発環境
+- **mise**: 開発ツールのバージョン管理 (shellcheck、shfmt、actionlint、ghalint)
+- **sheldon**: Zshプラグイン管理
+- **starship**: プロンプトカスタマイズ
+
+### 品質チェック
+- **shellcheck**: シェルスクリプトの静的解析
+- **shfmt**: シェルスクリプトのフォーマット
+- **actionlint**: GitHub Actionsワークフローのリント
+- **ghalint**: GitHub Actionsワークフローのセキュリティチェック
+
+### パッケージ管理
+- **Homebrew**: macOSでのパッケージ管理
