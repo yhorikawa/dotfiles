@@ -1,53 +1,45 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-DOTFILES_DIR=$(pwd)
+set -euo pipefail
 
-INSTALL_MAPPINGS="
-bash/.bashrc                      .bashrc
-.zshenv                           .zshenv
-.config/zsh/.zprofile             .config/zsh/.zprofile
-.config/zsh/.zshrc                .config/zsh/.zshrc
-.config/starship.toml             .config/starship.toml
-.config/sheldon/zsh/plugins.toml  .config/sheldon/zsh/plugins.toml
-.config/sheldon/bash/plugins.toml .config/sheldon/bash/plugins.toml
-.config/git/ignore                .config/git/ignore
-.config/wezterm/wezterm.lua       .config/wezterm/wezterm.lua
-.config/git/config                .config/git/config
-.vim                              .vim
-.config/claude/CLAUDE.md         .claude/CLAUDE.md
-.config/claude/settings.json     .claude/settings.json
-"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+readonly DOTFILES_DIR
+INSTALLS_DIR="${DOTFILES_DIR}/scripts/installs"
+readonly INSTALLS_DIR
 
-# Function to create symbolic links based on provided mappings
-create_symbolic_links() {
-    echo "$INSTALL_MAPPINGS" | while read MAP
-    do
-        [ ! -n "$MAP" ] && continue
-
-        ARGS=($MAP)
-        src="${ARGS[0]}"
-        dst="${ARGS[1]}"
-
-        mkdir -p "$(dirname "$HOME/$dst")"
-
-        if [ -e "$HOME/$dst" ] || [ -h "$HOME/$dst" ]; then
-            echo "Existing file or link detected at $HOME/$dst. Skipping..."
-            continue
-        fi
-
-        ln -s "$DOTFILES_DIR/$src" "$HOME/$dst"
-        echo "Created symbolic link: $src -> $dst"
-    done
+# Utility functions
+log() {
+	echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*"
 }
 
-echo "Creating symbolic links..."
-create_symbolic_links
-echo "Creating \$XDG_CACHE_HOME/zsh directory..."
-mkdir -p "$HOME/.cache/zsh"
-echo "Creating \$XDG_STATE_HOME/zsh directory..."
-mkdir -p "$HOME/.local/state/zsh"
-echo "Creating \$XDG_DATA_HOME/zsh directory..."
-mkdir -p "$HOME/.local/share/zsh"
-echo "Creating \$XDG_DATA_HOME/zsh/completions directory..."
-mkdir -p "$HOME/.local/share/zsh/completions"
-echo "Done!"
+error() {
+	echo "[$(date +'%Y-%m-%d %H:%M:%S')] ERROR: $*" >&2
+}
+
+main() {
+	log "Starting dotfiles installation..."
+	log "Dotfiles directory: $DOTFILES_DIR"
+
+	# Execute all install scripts in order
+	for script in "${INSTALLS_DIR}"/*.sh; do
+		if [[ -f "$script" ]]; then
+			log "Running $(basename "$script")..."
+
+			# Source the script to load its functions
+			source "$script"
+
+			# Call the unified install function
+			if declare -f "install" >/dev/null; then
+				install
+				log "Successfully completed $(basename "$script")"
+			else
+				error "No install function found in $(basename "$script")"
+				return 1
+			fi
+		fi
+	done
+
+	log "Installation completed successfully!"
+}
+
+main "$@"
