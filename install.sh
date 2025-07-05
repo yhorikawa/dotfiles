@@ -14,6 +14,8 @@ bash/.bashrc                      .bashrc
 .config/wezterm/wezterm.lua       .config/wezterm/wezterm.lua
 .config/git/config                .config/git/config
 .vim                              .vim
+.config/claude/CLAUDE.md         .claude/CLAUDE.md
+.config/claude/settings.json     .claude/settings.json
 "
 
 # Function to create symbolic links based on provided mappings
