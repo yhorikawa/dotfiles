@@ -22,10 +22,10 @@ initialize_environment_vars
 # TODO: Implement your installation logic here
 example_function() {
 	local param="$1"
-	
+
 	# TODO: Add your implementation
 	log_info "Processing: $param"
-	
+
 	# Example of common operations:
 	# - ensure_directory_exists "$HOME_DIR/.config/example"
 	# - create symbolic links
@@ -35,13 +35,13 @@ example_function() {
 
 install() {
 	log_info "Starting installation..."
-	
+
 	# TODO: Add your installation steps here
 	# Example:
 	# for item in "${EXAMPLE_CONFIG[@]}"; do
 	#	example_function "$item"
 	# done
-	
+
 	log_info "Installation completed successfully"
 }
 
