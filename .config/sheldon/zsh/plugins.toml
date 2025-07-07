@@ -55,7 +55,6 @@ local = "~/.local/share/zsh/completions"
 
 [plugins.expand-alias-widget]
 inline = '''
-autoload -Uz compinit && compinit
 function expand-alias-widget() {
   zle _expand_alias
   zle self-insert
