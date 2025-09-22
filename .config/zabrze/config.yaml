@@ -1,0 +1,124 @@
+abbrevs:
+  - name: ls long format
+    abbr: ll
+    snippet: ls -alF
+
+  - name: ls all
+    abbr: la
+    snippet: ls -A
+
+  - name: git
+    abbr: g
+    snippet: git
+
+  - name: docker
+    abbr: d
+    snippet: docker
+
+  - name: docker typo
+    abbr: dokcer
+    snippet: docker
+
+  - name: docker compose
+    abbr: dc
+    snippet: docker compose
+
+  - name: docker compose up
+    abbr: dcu
+    snippet: docker compose up --build -d
+
+  - name: docker compose restart
+    abbr: dcrs
+    snippet: docker compose restart
+
+  - name: claude
+    abbr: cc
+    snippet: claude
+
+  - name: claude dangerous
+    abbr: ccd
+    snippet: claude --dangerously-skip-permissions
+
+  - name: find
+    abbr: f
+    snippet: find . -name
+
+  - name: clear
+    abbr: c
+    snippet: clear
+
+  - name: grep
+    abbr: G
+    snippet: '| grep --color=auto'
+    global: true
+
+  - name: ls darwin
+    abbr: ls
+    snippet: ls -G
+    if: '[[ "$OSTYPE" =~ darwin ]]'
+
+  - name: ls linux
+    abbr: ls
+    snippet: ls -F --color=always
+    if: '[[ "$OSTYPE" =~ linux ]]'
+
+  - name: git status
+    abbr: st
+    snippet: status
+    global: true
+    context: '^git\s'
+
+  - name: git show
+    abbr: sh
+    snippet: show
+    global: true
+    context: '^git\s'
+
+  - name: git switch
+    abbr: sw
+    snippet: switch
+    global: true
+    context: '^git\s'
+
+  - name: git push
+    abbr: ps
+    snippet: push
+    global: true
+    context: '^git\s'
+
+  - name: git pull
+    abbr: pl
+    snippet: pull
+    global: true
+    context: '^git\s'
+
+  - name: git commit
+    abbr: ci
+    snippet: commit
+    global: true
+    context: '^git\s'
+
+  - name: git commit -m
+    abbr: cm
+    snippet: commit -m '{}'
+    cursor: "{}"
+    global: true
+    context: '^git\s'
+
+  - name: git checkout
+    abbr: co
+    snippet: checkout
+    global: true
+    context: '^git\s'
+
+  - name: git checkout -b
+    abbr: cb
+    snippet: checkout -b
+    global: true
+    context: '^git\s'
+
+  - name: git grep
+    abbr: gr
+    snippet: grep
+    global: true
+    context: '^git\s'

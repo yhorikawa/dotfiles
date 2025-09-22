@@ -46,22 +46,15 @@ local = '~/dotfiles/zsh/plugins/defer'
 use = ['*.zsh']
 apply = ['defer']
 
+[plugins.zabrze-init]
+inline = 'eval "$(zabrze init --bind-keys)"'
+
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
 
 [plugins.local-completions]
 apply = ["fpath"]
 local = "~/.local/share/zsh/completions"
-
-[plugins.expand-alias-widget]
-inline = '''
-function expand-alias-widget() {
-  zle _expand_alias
-  zle self-insert
-}
-zle -N expand-alias-widget
-bindkey ' ' expand-alias-widget
-'''
 
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION'
