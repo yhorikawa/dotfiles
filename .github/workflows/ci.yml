@@ -21,7 +21,7 @@ jobs:
           persist-credentials: false
       
       - name: Setup mise
-        uses: jdx/mise-action@5ac50f778e26fac95da98d50503682459e86d566 # v3.2.0
+        uses: jdx/mise-action@d16887ba50704baed7de72bd1e82e04391e4457a # v3.5.0
 
       - name: Run shellcheck
         run: make lint
