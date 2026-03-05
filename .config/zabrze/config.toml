@@ -1,0 +1,148 @@
+[[snippets]]
+name = "ls long format"
+trigger = "ll"
+snippet = "ls -alF"
+
+[[snippets]]
+name = "ls all"
+trigger = "la"
+snippet = "ls -A"
+
+[[snippets]]
+name = "git"
+trigger = "g"
+snippet = "git"
+
+[[snippets]]
+name = "docker"
+trigger = "d"
+snippet = "docker"
+
+[[snippets]]
+name = "docker typo"
+trigger = "dokcer"
+snippet = "docker"
+
+[[snippets]]
+name = "docker compose"
+trigger = "dc"
+snippet = "docker compose"
+
+[[snippets]]
+name = "docker compose up"
+trigger = "dcu"
+snippet = "docker compose up --build -d"
+
+[[snippets]]
+name = "docker compose restart"
+trigger = "dcrs"
+snippet = "docker compose restart"
+
+[[snippets]]
+name = "claude"
+trigger = "cc"
+snippet = "claude"
+
+[[snippets]]
+name = "claude dangerous"
+trigger = "ccd"
+snippet = "claude --dangerously-skip-permissions"
+
+[[snippets]]
+name = "find"
+trigger = "f"
+snippet = "find . -name"
+
+[[snippets]]
+name = "clear"
+trigger = "c"
+snippet = "clear"
+
+[[snippets]]
+name = "grep"
+trigger = "G"
+snippet = "| grep --color=auto"
+global = true
+
+[[snippets]]
+name = "ls darwin"
+trigger = "ls"
+snippet = "ls -G"
+if = '[[ "$OSTYPE" =~ darwin ]]'
+
+[[snippets]]
+name = "ls linux"
+trigger = "ls"
+snippet = "ls -F --color=always"
+if = '[[ "$OSTYPE" =~ linux ]]'
+
+[[snippets]]
+name = "git status"
+trigger = "st"
+snippet = "status"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git show"
+trigger = "sh"
+snippet = "show"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git switch"
+trigger = "sw"
+snippet = "switch"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git push"
+trigger = "ps"
+snippet = "push"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git pull"
+trigger = "pl"
+snippet = "pull"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git commit"
+trigger = "ci"
+snippet = "commit"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git commit -m"
+trigger = "cm"
+snippet = "commit -m '{}'"
+cursor = "{}"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git checkout"
+trigger = "co"
+snippet = "checkout"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git checkout -b"
+trigger = "cb"
+snippet = "checkout -b"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git grep"
+trigger = "gr"
+snippet = "grep"
+global = true
+context = '^git\s'

@@ -25,7 +25,7 @@ SYMLINK_PAIRS=(
 	".config/git/ignore:.config/git/ignore"
 	".config/wezterm/wezterm.lua:.config/wezterm/wezterm.lua"
 	".config/git/config:.config/git/config"
-	".config/zabrze/config.yaml:.config/zabrze/config.yaml"
+	".config/zabrze:.config/zabrze"
 	".vim:.vim"
 )
 
