@@ -35,7 +35,7 @@ install() {
 	for pair in "${SYMLINK_PAIRS[@]}"; do
 		src="${pair%%:*}"
 		dst="${pair#*:}"
-		create_symbolic_link "$src" "$dst"
+		create_symbolic_link "$src" "${HOME_DIR}/${dst}"
 	done
 }
 

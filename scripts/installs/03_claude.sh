@@ -13,15 +13,21 @@ source "$(dirname "$SCRIPT_DIR")/install_utils.sh"
 # Initialize common variables
 initialize_environment_vars
 
-readonly CLAUDE_DIR="${HOME_DIR}/.claude"
+# Source and destination pairs for symbolic links
+SYMLINK_PAIRS=(
+	".config/claude/CLAUDE.md:.config/claude/CLAUDE.md"
+	".config/claude/settings.json:.config/claude/settings.json"
+	".config/ccstatusline/settings.json:.config/ccstatusline/settings.json"
+)
 
 install() {
-	log_info "Creating hard links for Claude configuration files..."
+	log_info "Creating symbolic links for Claude configuration files..."
 
-	ensure_directory_exists "$CLAUDE_DIR"
-
-	create_hard_link ".config/claude/CLAUDE.md" "${CLAUDE_DIR}/CLAUDE.md"
-	create_hard_link ".config/claude/settings.json" "${CLAUDE_DIR}/settings.json"
+	for pair in "${SYMLINK_PAIRS[@]}"; do
+		src="${pair%%:*}"
+		dst="${pair#*:}"
+		create_symbolic_link "$src" "${HOME_DIR}/${dst}"
+	done
 }
 
 # Run if script is executed directly
