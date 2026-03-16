@@ -11,7 +11,7 @@
     "playwright@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
-    "superpowers@superpowers-marketplace": true,
+    "superpowers@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
   "permissions": {
