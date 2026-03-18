@@ -1,20 +1,6 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "cleanupPeriodDays": 120,
-  "enabledPlugins": {
-    "claude-md-management@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "database-design@claude-code-workflows": true,
-    "document-skills@anthropic-agent-skills": true,
-    "frontend-design@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
-    "ruby-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
-  },
   "permissions": {
     "allow": [
       "Bash(cargo add:*)",
@@ -191,9 +177,30 @@
       "Bash(mongod:*)"
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "mise exec -- bunx -y ccstatusline@latest",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "claude-md-management@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "database-design@claude-code-workflows": true,
+    "document-skills@anthropic-agent-skills": true,
+    "frontend-design@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "figma@claude-plugins-official": true
+  },
   "sandbox": {
-    "autoAllowBashIfSandboxed": true,
     "enabled": true,
+    "autoAllowBashIfSandboxed": true,
     "network": {
       "allowedDomains": [
         "github.com",
@@ -201,13 +208,11 @@
         "*.npmjs.org",
         "registry.yarnpkg.com",
         "pypi.org"
-      ]
-    }
+      ],
+      "allowLocalBinding": true
+    },
+    "enableWeakerNetworkIsolation": true
   },
   "skipDangerousModePermissionPrompt": true,
-  "statusLine": {
-    "command": "mise exec -- bunx -y ccstatusline@latest",
-    "padding": 0,
-    "type": "command"
-  }
+  "language": "japanese"
 }
