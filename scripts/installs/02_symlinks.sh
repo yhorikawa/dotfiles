@@ -13,19 +13,10 @@ source "$(dirname "$SCRIPT_DIR")/install_utils.sh"
 # Initialize common variables
 initialize_environment_vars
 
-# Source and destination pairs for symbolic links
+# Non-.config symlink pairs (source path differs from destination)
 SYMLINK_PAIRS=(
 	"bash/.bashrc:.bashrc"
 	".zshenv:.zshenv"
-	".config/zsh/.zprofile:.config/zsh/.zprofile"
-	".config/zsh/.zshrc:.config/zsh/.zshrc"
-	".config/starship.toml:.config/starship.toml"
-	".config/sheldon/zsh/plugins.toml:.config/sheldon/zsh/plugins.toml"
-	".config/sheldon/bash/plugins.toml:.config/sheldon/bash/plugins.toml"
-	".config/git/ignore:.config/git/ignore"
-	".config/wezterm/wezterm.lua:.config/wezterm/wezterm.lua"
-	".config/git/config:.config/git/config"
-	".config/zabrze:.config/zabrze"
 	".vim:.vim"
 )
 
@@ -39,7 +30,4 @@ install() {
 	done
 }
 
-# Run if script is executed directly
-if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-	install
-fi
+install

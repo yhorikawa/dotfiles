@@ -41,8 +41,13 @@ create_hard_link() {
 	local dst="$2"
 
 	if [[ -e "$dst" ]] || [[ -L "$dst" ]]; then
-		log_info "Existing file detected at $dst. Skipping... (To update, manually remove the file and re-run)"
-		return 0
+		if [[ "${DOTFILES_FORCE:-}" == "1" ]]; then
+			trash "$dst"
+			log_info "Removed existing file: $dst"
+		else
+			log_info "Existing file detected at $dst. Skipping... (To update, use --force or manually remove the file and re-run)"
+			return 0
+		fi
 	fi
 
 	if ln "${DOTFILES_DIR}/${src}" "$dst"; then
@@ -60,8 +65,13 @@ create_symbolic_link() {
 	ensure_directory_exists "$(dirname "$dst")"
 
 	if [[ -e "$dst" ]] || [[ -L "$dst" ]]; then
-		log_info "Existing file detected at $dst. Skipping... (To update, manually remove the file and re-run)"
-		return 0
+		if [[ "${DOTFILES_FORCE:-}" == "1" ]]; then
+			trash "$dst"
+			log_info "Removed existing file: $dst"
+		else
+			log_info "Existing file detected at $dst. Skipping... (To update, use --force or manually remove the file and re-run)"
+			return 0
+		fi
 	fi
 
 	if ln -s "${DOTFILES_DIR}/${src}" "$dst"; then

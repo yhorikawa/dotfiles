@@ -13,21 +13,13 @@ source "$(dirname "$SCRIPT_DIR")/install_utils.sh"
 # Initialize common variables
 initialize_environment_vars
 
-# XDG directory pairs (type:path)
-XDG_DIRS=(
-	"cache:${HOME_DIR}/.cache/zsh"
-	"state:${HOME_DIR}/.local/state/zsh"
-	"data:${HOME_DIR}/.local/share/zsh"
-	"completions:${HOME_DIR}/.local/share/zsh/completions"
-)
-
 install() {
-	log_info "Creating XDG directories..."
+	log_info "Creating symbolic links for .config/ files..."
 
-	for pair in "${XDG_DIRS[@]}"; do
-		dir="${pair#*:}"
-		ensure_directory_exists "$dir"
-	done
+	# Auto-discover and symlink all files under .config/
+	while IFS= read -r file; do
+		create_symbolic_link "$file" "${HOME_DIR}/${file}"
+	done < <(cd "$DOTFILES_DIR" && find .config -type f | sort)
 }
 
 install

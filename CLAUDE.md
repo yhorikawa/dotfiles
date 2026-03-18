@@ -27,9 +27,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 インストールスクリプトは以下の順序で実行されます:
 
 1. `01_xdg.sh`: XDG準拠のディレクトリ作成
-2. `02_symlinks.sh`: 設定ファイルのシンボリックリンク作成
-3. `03_claude.sh`: Claude設定のハードリンク作成
-4. `04_gemini.sh`: Gemini設定のハードリンク作成
+2. `02_symlinks.sh`: カスタムシンボリックリンク作成 (パスの対応が異なるもの)
+3. `03_config.sh`: `.config/`配下のファイルを自動探索してシンボリックリンク作成
 
 各スクリプトは`install()`関数を実装し、共通ユーティリティを`scripts/install_utils.sh`から読み込みます。
 

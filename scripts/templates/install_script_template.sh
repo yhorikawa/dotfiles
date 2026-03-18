@@ -45,7 +45,4 @@ install() {
 	log_info "Installation completed successfully"
 }
 
-# Run if script is executed directly
-if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-	install
-fi
+install
