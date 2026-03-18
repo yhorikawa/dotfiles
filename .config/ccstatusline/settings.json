@@ -5,7 +5,7 @@
       {
         "id": "1",
         "type": "model",
-        "color": "cyan"
+        "color": "brightCyan"
       },
       {
         "id": "2",
@@ -60,8 +60,12 @@
   "globalBold": false,
   "powerline": {
     "enabled": false,
-    "separators": [""],
-    "separatorInvertBackground": [false],
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
     "startCaps": [],
     "endCaps": [],
     "autoAlign": false
