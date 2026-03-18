@@ -45,6 +45,16 @@ config.window_background_gradient = {
   },
 }
 
+wezterm.on('gui-startup', function(cmd)
+  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+  local gui_win = window:gui_window()
+  local screen = wezterm.gui.screens().active
+  local sw = screen.width
+  local sh = screen.height
+  gui_win:set_inner_size(sw / 2, sh / 2)  -- 縦横それぞれ1/2 = 面積1/4
+  gui_win:set_position(sw / 4, sh / 4)    -- 中央に配置
+end)
+
 -- We'll use Lua's `if` statement to dynamically set the modifier key based on the OS
 local open_link_modifier = "CTRL" -- Default to "CTRL" for Linux and Windows
 if wezterm.target_triple:find("darwin") then
