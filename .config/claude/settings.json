@@ -187,17 +187,18 @@
     "code-review@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
-    "database-design@claude-code-workflows": true,
-    "document-skills@anthropic-agent-skills": true,
     "frontend-design@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "figma@claude-plugins-official": true
+    "figma@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
   },
+  "outputStyle": "Explanatory",
+  "language": "japanese",
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
@@ -216,8 +217,6 @@
     },
     "enableWeakerNetworkIsolation": true
   },
-  "skipDangerousModePermissionPrompt": true,
-  "language": "japanese",
-  "outputStyle": "Explanatory",
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "skipDangerousModePermissionPrompt": true
 }
