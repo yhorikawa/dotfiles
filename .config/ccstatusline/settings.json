@@ -30,8 +30,8 @@
         "type": "separator"
       },
       {
-        "id": "5",
-        "type": "git-branch",
+        "id": "d529bf7b-53d4-4906-8b38-b493d0aaefc7",
+        "type": "session-usage",
         "color": "ansi256:110"
       }
     ],
@@ -40,6 +40,15 @@
         "id": "f278f4b1-e755-4b4f-b8cc-6ec4213a13e5",
         "type": "git-root-dir",
         "color": "ansi256:146"
+      },
+      {
+        "id": "85c335de-725a-4fd4-adb0-8abd13b427b9",
+        "type": "separator"
+      },
+      {
+        "id": "1c98fda1-a4e4-48ed-a98d-46586d2d3c71",
+        "type": "git-branch",
+        "color": "ansi256:140"
       },
       {
         "id": "941eaf0c-a607-498a-92aa-6d7601c170fe",
@@ -60,8 +69,12 @@
   "globalBold": false,
   "powerline": {
     "enabled": false,
-    "separators": [""],
-    "separatorInvertBackground": [false],
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
     "startCaps": [],
     "endCaps": [],
     "autoAlign": false
