@@ -188,6 +188,8 @@
       "Bash(psql:*)",
       "Bash(push:*)",
       "Bash(pushf:*)",
+      "Bash(rm:*)",
+      "Bash(rm -rf *)",
       "Bash(rmdir *)",
       "Bash(rsync * --delete*)",
       "Bash(scp *)",
