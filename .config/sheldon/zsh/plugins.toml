@@ -49,6 +49,9 @@ apply = ['defer']
 [plugins.zabrze-init]
 inline = 'eval "$(zabrze init --bind-keys)"'
 
+[plugins.fzf]
+inline = 'source <(fzf --zsh)'
+
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
 
