@@ -14,3 +14,7 @@ fi
 if (( ${+commands[docker]} )); then
   docker completion zsh > "$XDG_DATA_HOME"/zsh/completions/_docker
 fi
+
+if (( ${+commands[zellij]} )); then
+  zellij setup --generate-completion zsh > "$XDG_DATA_HOME"/zsh/completions/_zellij
+fi
