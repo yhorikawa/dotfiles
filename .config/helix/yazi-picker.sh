@@ -7,7 +7,7 @@ if [[ -s "$tmp" ]]; then
 
 	# search:// 形式の場合、実際のパスを抽出
 	if [[ "$paths" == search://* ]]; then
-		paths="${paths/search:\/\/*\//}"
+		paths="${paths#search://*/}"
 	fi
 
 	rm -f "$tmp"
