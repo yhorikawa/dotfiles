@@ -165,7 +165,6 @@
     "deny": [
       "Bash(* .env*)",
       "Bash(* ~/.aws/*)",
-      "Bash(* ~/.config/gh/*)",
       "Bash(* ~/.git-credentials)",
       "Bash(* ~/.netrc)",
       "Bash(* ~/.npmrc)",
@@ -217,7 +216,6 @@
       "Read(id_ed25519)",
       "Read(id_rsa)",
       "Read(~/.aws/**)",
-      "Read(~/.config/gh/**)",
       "Read(~/.git-credentials)",
       "Read(~/.netrc)",
       "Read(~/.npmrc)",
@@ -259,6 +257,7 @@
     "network": {
       "allowedDomains": [
         "github.com",
+        "api.github.com",
         "*.githubusercontent.com",
         "*.npmjs.org",
         "registry.yarnpkg.com",
