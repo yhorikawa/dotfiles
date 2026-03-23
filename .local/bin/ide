@@ -13,9 +13,21 @@ fi
 
 project_name=$(basename "$selected")
 branch=$(cd "$selected" && git branch --show-current 2>/dev/null || echo "main")
-session_name="${project_name}:${branch//\//-}"
 
-session_name="${session_name:0:30}"
+# 1. 衝突を防ぐため、絶対パスとブランチ名からハッシュ値（先頭6文字）を生成
+# macOS(md5)とLinux(md5sum)の違いを吸収します
+if command -v md5sum >/dev/null 2>&1; then
+    hash_val=$(echo -n "${selected}:${branch}" | md5sum | cut -c1-6)
+else
+    hash_val=$(echo -n "${selected}:${branch}" | md5 | cut -c1-6)
+fi
+
+# 2. セッション一覧を見たときに人間が判別するためのベース文字列
+base_name="${project_name}:${branch//\//-}"
+
+# 3. 最大25文字に収める
+# ベース文字列(18文字) + "_" + ハッシュ(6文字) = 25文字
+session_name="${base_name:0:18}_${hash_val}"
 
 if [[ -n "$ZELLIJ" ]]; then
     zellij action detach
