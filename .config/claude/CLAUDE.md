@@ -1,65 +1,65 @@
-# Claude Code 設定
+# Claude Code Configuration
 
-**このファイルの内容を常に尊重すること。**
+**Always respect the contents of this file.**
 
-## 出力設定
+## Output Settings
 
-- 日本語で応答してください。
-- コードのコメントなどは元の言語のままにしてください。
-- 全角記号より半角記号を優先してください。
-  特に全角括弧は禁止。
-- ドキュメントは適切なレイヤーに書く: コード → How, テスト → What, コミット → Why, コメント → Why not
-- コード変更に合わせてドキュメントも更新すること
+- Respond in Japanese.
+- Keep code comments in their original language.
+- Prefer half-width symbols over full-width symbols.
+  Full-width parentheses are prohibited in particular.
+- Write documentation at the appropriate layer: Code → How, Tests → What, Commits → Why, Comments → Why not
+- Update documentation in sync with code changes.
 
-## 解決策の選び方
+## Choosing Solutions
 
-- 安易な解決策より**シンプル**な解決策を優先する。
-- 設定の迷宮にはまるより**体系的な問題解決**を優先する。
+- Prefer **simple** solutions over easy ones.
+- Prefer **systematic problem-solving** over getting lost in configuration mazes.
 
-## コマンド
+## Commands
 
-### 推奨
+### Preferred
 
-* `rg`: `grep`の代わりに使ってください。
-* `fd`: `find`の代わりに使ってください。
+- `rg`: Use instead of `grep`.
+- `fd`: Use instead of `find`.
 
-### 非推奨
+### Deprecated
 
-* `grep`: 代わりに`rg`を使ってください。
-* `find`: 代わりに`fd`を使ってください。
-* `cat`: 代わりにあなた自身がファイルを読み込んでください。
+- `grep`: Use `rg` instead.
+- `find`: Use `fd` instead.
+- `cat`: Read files yourself instead.
 
-## サブエージェントの利用 (Task tool)
+## Using Subagents (Task tool)
 
-- 小~中規模の**自己完結した**タスクにサブエージェントを使う。
-- サブエージェントが迷わないよう**手順と目標を明示的に指示**する。
-- オープンエンドなタスクにはサブエージェントを使わない。代わりに**メインコンテキストで継続**して進捗を追跡する。
-- 単純な並列化可能タスクにはサブエージェントを並列で使う。
+- Use subagents for small to medium-sized **self-contained** tasks.
+- **Explicitly specify steps and goals** so subagents don't get lost.
+- Don't use subagents for open-ended tasks. Instead, **continue in the main context** to track progress.
+- Use subagents in parallel for simple parallelizable tasks.
 
-## z-ai/ ディレクトリ
+## z-ai/ Directory
 
-- `z-ai/`はグローバルでgitignoreされている。
-- このディレクトリは計画や進捗管理などのローカルAIドキュメント用。
-- `z-ai/`がgitignoreされているか確認しないこと — 常にされている。
+- `z-ai/` is globally gitignored.
+- This directory is used for local AI documents such as plans and progress tracking.
+- Do not verify whether `z-ai/` is gitignored — it always is.
 
-## ブラウザ自動操作 (agent-browser)
+## Browser Automation (agent-browser)
 
-`agent-browser`でブラウザを操作できる。
+You can control the browser with `agent-browser`.
 
 ```bash
-# 1. ページを開く (`--allow-private`はlocalhost接続に必要)
+# 1. Open a page (`--allow-private` is required for localhost connections)
 agent-browser open <url> --allow-private
 
-# 2. 要素の参照を取得
+# 2. Get element references
 agent-browser snapshot -i
 
-# 3. 操作
+# 3. Interact
 agent-browser click @e<N>
-agent-browser fill @e<N> "テキスト"
+agent-browser fill @e<N> "text"
 
-# 4. スクリーンショット保存
+# 4. Save a screenshot
 agent-browser screenshot z-ai/screenshot.png
 
-# ex. 認証情報を保存
+# ex. Save credentials
 agent-browser open <url> --profile ~/.browser-profile --allow-private
 ```
