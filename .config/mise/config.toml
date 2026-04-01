@@ -8,7 +8,7 @@ go = "1.26.1"
 jq = "1.8.1"
 node = "24.14.1"
 pnpm = "10.33.0"
-rust = "1.94.0"
+rust = "1.94.1"
 shellcheck = "0.11.0"
 
 "npm:ccusage" = "18.0.10"
