@@ -1,5 +1,5 @@
 [tools]
-actionlint = "latest"
-ghalint = "latest"
-shellcheck = "latest"
-shfmt = "latest"
+actionlint = "1.7.7"
+ghalint = "1.5.1"
+shellcheck = "0.11.0"
+shfmt = "3.11.0"
