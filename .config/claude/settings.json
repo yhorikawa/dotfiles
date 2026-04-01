@@ -272,5 +272,5 @@
   },
   "alwaysThinkingEnabled": true,
   "skipDangerousModePermissionPrompt": true,
-  "plansDirectory": "./plans"
+  "plansDirectory": "./z-ai/plans"
 }
