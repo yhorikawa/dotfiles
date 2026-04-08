@@ -153,15 +153,6 @@
       "Bash(pnpm lint:*)",
       "WebFetch"
     ],
-    "ask": [
-      "Bash(git config:*)",
-      "Bash(git push:*)",
-      "Bash(git rebase:*)",
-      "Bash(git reset:*)",
-      "Bash(git restore:*)",
-      "Bash(git rm:*)",
-      "Bash(git switch:*)"
-    ],
     "deny": [
       "Bash(* .env*)",
       "Bash(* ~/.aws/*)",
@@ -227,6 +218,29 @@
       "Write(/secrets/**)",
       "Write(id_ed25519)",
       "Write(id_rsa)"
+    ],
+    "ask": [
+      "Bash(git config:*)",
+      "Bash(git push:*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset:*)",
+      "Bash(git restore:*)",
+      "Bash(git rm:*)",
+      "Bash(git switch:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/dotfiles/.config/claude/hooks/plan-preview.sh",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
@@ -249,19 +263,13 @@
     "pr-review-toolkit@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true
   },
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/dotfiles/.config/claude/hooks/plan-preview.sh",
-            "timeout": 10
-          }
-        ]
+  "extraKnownMarketplaces": {
+    "tsumiki": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/classmethod/tsumiki.git"
       }
-    ]
+    }
   },
   "outputStyle": "Explanatory",
   "language": "japanese",
@@ -285,6 +293,5 @@
     "enableWeakerNetworkIsolation": true
   },
   "alwaysThinkingEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
   "plansDirectory": "./z-ai/plans"
 }
