@@ -25,9 +25,9 @@ fi
 # 2. セッション一覧を見たときに人間が判別するためのベース文字列
 base_name="${project_name}:${branch//\//-}"
 
-# 3. 最大25文字に収める
-# ベース文字列(18文字) + "_" + ハッシュ(6文字) = 25文字
-session_name="${base_name:0:18}_${hash_val}"
+# 3. 最大24文字に収める (macOSのソケットパス104バイト制限)
+# ベース文字列(17文字) + "_" + ハッシュ(6文字) = 24文字
+session_name="${base_name:0:17}_${hash_val}"
 
 if [[ -n "$ZELLIJ" ]]; then
     zellij action detach

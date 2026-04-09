@@ -15,7 +15,7 @@ shellcheck = "0.11.0"
 "npm:agent-browser" = "0.23.4"
 
 "github:dandavison/delta" = "0.19.2"
-"github:zellij-org/zellij" = "0.44.0"
+"github:zellij-org/zellij" = "0.44.1"
 "github:helix-editor/helix" = "25.07.1"
 "github:Ryooooooga/zabrze" = "0.7.3"
 "github:sxyazi/yazi" = "26.1.22"
