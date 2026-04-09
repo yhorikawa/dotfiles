@@ -244,6 +244,26 @@
           }
         ]
       }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf '\\033]9;Claude Code: Waiting for input\\a\\a' > /dev/tty 2>/dev/null"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf '\\033]9;Claude Code: Task finished\\a\\a' > /dev/tty 2>/dev/null"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {

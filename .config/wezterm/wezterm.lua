@@ -94,5 +94,49 @@ config.keys = {
   { key = 'RightArrow', mods = 'CMD', action = wezterm.action.SendString '\x05' }, -- Cmd+Right (行の末尾に移動)
 }
 
+local function is_claude(pane)
+  local process = pane:get_foreground_process_info()
+  if not process or not process.argv then
+    return false
+  end
+  -- Check if any argument contains "claude"
+  for _, arg in ipairs(process.argv) do
+    if arg:find("claude") then
+      return true
+    end
+  end
+  return false
+end
+-- Track tabs with bell for highlighting (Claude Code sends BEL alongside OSC 9)
+local bell_tabs = {}
+wezterm.on("bell", function(window, pane)
+  if is_claude(pane) then
+    local tab = pane:tab()
+    if tab then
+      bell_tabs[tab:tab_id()] = true
+    end
+  end
+end)
+
+wezterm.on("format-tab-title", function(tab)
+	local tab_id = tab.tab_id
+
+	-- Clear bell state when tab becomes active
+	if tab.is_active then
+		bell_tabs[tab_id] = nil
+	end
+
+	-- Highlight tabs with Claude Code notifications
+	if bell_tabs[tab_id] and not tab.is_active then
+		local title = (tab.tab_index + 1) .. ": " .. tab.active_pane.title
+		return {
+			{ Background = { Color = "#e2943b" } },
+			{ Foreground = { Color = "#161821" } },
+			{ Text = " " .. title .. " " },
+		}
+	end
+end)
+config.audible_bell = "Disabled"
+
 -- and finally, return the configuration to wezterm
 return config
