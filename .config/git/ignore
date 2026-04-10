@@ -4,3 +4,4 @@ mise.local.toml
 *.code-workspace
 **/.claude/settings.local.json
 **/z-ai/
+lefthook-local.yml
