@@ -1,37 +1,26 @@
 #!/bin/bash
 
 if [[ -n "$1" ]]; then
-    selected=$(cd "$1" && pwd)
+  selected=$(cd "$1" && pwd)
 else
-    selected=$(find "$HOME/workspace" -maxdepth 3 -name ".git" 2>/dev/null | xargs -n1 dirname | sort -u | fzf --prompt="Project > ")
+  selected=$(find "$HOME/workspace" -maxdepth 3 -name ".git" 2>/dev/null | xargs -n1 dirname | sort -u | fzf --prompt="Project > ")
 fi
 
 if [[ -z "$selected" ]]; then
-    echo "No project selected"
-    exit 0
+  echo "No project selected"
+  exit 0
 fi
 
-project_name=$(basename "$selected")
-branch=$(cd "$selected" && git branch --show-current 2>/dev/null || echo "main")
+current_pane_id=$(wezterm cli list-clients --format json | jq -r '.[0].focused_pane_id' 2>/dev/null)
+existing=$(wezterm cli list --format json | jq -r ".[] | select(.cwd == \"file://$selected\" and .pane_id != $current_pane_id) | .pane_id" | head -1)
 
-# 1. 衝突を防ぐため、絶対パスとブランチ名からハッシュ値（先頭6文字）を生成
-# macOS(md5)とLinux(md5sum)の違いを吸収します
-if command -v md5sum >/dev/null 2>&1; then
-    hash_val=$(echo -n "${selected}:${branch}" | md5sum | cut -c1-6)
+if [[ -n "$existing" ]]; then
+  wezterm cli activate-pane --pane-id "$existing"
 else
-    hash_val=$(echo -n "${selected}:${branch}" | md5 | cut -c1-6)
+  new_pane_id=$(wezterm cli spawn --cwd "$selected")
+  right_pane_id=$(wezterm cli split-pane --pane-id "$new_pane_id" --right --percent 30 --cwd "$selected")
+  bottom_left_id=$(wezterm cli split-pane --pane-id "$new_pane_id" --bottom --percent 50 --cwd "$selected")
+
+  sleep 0.5
+  wezterm cli send-text --pane-id "$new_pane_id" --no-paste $'hx .\n'
 fi
-
-# 2. セッション一覧を見たときに人間が判別するためのベース文字列
-base_name="${project_name}:${branch//\//-}"
-
-# 3. 最大24文字に収める (macOSのソケットパス104バイト制限)
-# ベース文字列(17文字) + "_" + ハッシュ(6文字) = 24文字
-session_name="${base_name:0:17}_${hash_val}"
-
-if [[ -n "$ZELLIJ" ]]; then
-    zellij action detach
-fi
-
-cd "$selected"
-zellij attach "$session_name" 2>/dev/null || zellij -s "$session_name"
