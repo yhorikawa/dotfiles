@@ -1,0 +1,21 @@
+#!/bin/bash
+# WezTerm overlay pane: split-pane + zoom-pane to cover the current pane
+# Auto-closes on program exit → unzoom → original pane restored
+#
+# Usage:
+#   wlay          → zsh
+#   wlay hx       → hx
+#   wlay lazygit  → lazygit
+#   wlay diff     → git diff
+set -euo pipefail
+
+case "${1:-sh}" in
+  sh)   set -- zsh ;;
+  hx) shift; set -- hx "$@" ;;
+  lazygit)  shift; set -- lazygit "$@" ;;
+  diff) shift; set -- zsh -c "git diff $*" ;;
+  *)    echo "Unknown command: $1" >&2; exit 1 ;;
+esac
+
+pane_id=$(wezterm cli split-pane --bottom --cwd "$(pwd)" -- "$@")
+wezterm cli zoom-pane --zoom --pane-id "$pane_id"
