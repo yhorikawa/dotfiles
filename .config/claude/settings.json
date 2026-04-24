@@ -161,7 +161,6 @@
       "Bash(* ~/.aws/*)",
       "Bash(* ~/.git-credentials)",
       "Bash(* ~/.netrc)",
-      "Bash(* ~/.npmrc)",
       "Bash(* ~/.ssh/*)",
       "Bash(chmod 777:*)",
       "Bash(curl *)",
@@ -181,7 +180,6 @@
       "Bash(psql:*)",
       "Bash(push:*)",
       "Bash(pushf:*)",
-      "Bash(rm:*)",
       "Bash(rm -rf *)",
       "Bash(rmdir *)",
       "Bash(rsync * --delete*)",
@@ -212,7 +210,6 @@
       "Read(~/.aws/**)",
       "Read(~/.git-credentials)",
       "Read(~/.netrc)",
-      "Read(~/.npmrc)",
       "Read(~/.ssh/**)",
       "Write(**/*.env*)",
       "Write(**/*secrets*)",
@@ -277,14 +274,11 @@
     "code-simplifier@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "ruby-lsp@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
     "figma@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true
+    "skill-creator@claude-plugins-official": true,
+    "tsumiki@tsumiki": true
   },
   "extraKnownMarketplaces": {
     "tsumiki": {
@@ -316,5 +310,6 @@
     "enableWeakerNetworkIsolation": true
   },
   "alwaysThinkingEnabled": true,
-  "plansDirectory": "./z-ai/plans"
+  "plansDirectory": "./z-ai/plans",
+  "skipAutoPermissionPrompt": true
 }
