@@ -12,7 +12,7 @@ pnpm = "10.33.0"
 rust = "1.95.0"
 shellcheck = "0.11.0"
 
-"npm:ccusage" = "18.0.10"
+"npm:ccusage" = "18.0.11"
 "npm:agent-browser" = "0.26.0"
 
 "github:dandavison/delta" = "0.19.2"
