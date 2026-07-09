@@ -4,7 +4,7 @@
 
 ## Output Settings
 
-- Respond in Japanese.
+- Think in English → Respond in Japanese.
 - Keep code comments in their original language.
 - Prefer half-width symbols over full-width symbols.
   Full-width parentheses are prohibited in particular.
