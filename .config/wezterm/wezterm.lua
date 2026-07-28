@@ -17,8 +17,6 @@ config.color_scheme = 'iceberg-dark'
 config.font = wezterm.font { family = 'UDEV Gothic 35NFLG', weight = 'Bold' }
 config.font_size = 14
 
-use_fancy_tab_bar = false
-
 config.window_background_opacity = 0.95
 config.window_background_gradient = {
   colors = { '#002916', '#050633', '#37040e' },
