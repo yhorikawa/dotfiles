@@ -214,13 +214,10 @@
       "Read(~/.git-credentials)",
       "Read(~/.netrc)",
       "Read(~/.ssh/**)",
-      "Write(**/*.env*)",
-      "Write(**/*secrets*)",
-      "Write(./.env)",
-      "Write(./.env.*)",
-      "Write(/secrets/**)",
-      "Write(id_ed25519)",
-      "Write(id_rsa)"
+      "Edit(**/*.env*)",
+      "Edit(**/*secrets*)",
+      "Edit(id_ed25519)",
+      "Edit(id_rsa)"
     ],
     "ask": [
       "Bash(git config:*)",
