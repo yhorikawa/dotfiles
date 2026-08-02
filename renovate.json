@@ -15,6 +15,9 @@
   ],
   "mise": {
     "enabled": true,
-    "fileMatch": ["^mise\\.toml$", "^\\.config/mise/config\\.toml$"]
+    "managerFilePatterns": [
+      "/^mise\\.toml$/",
+      "/^\\.config/mise/config\\.toml$/"
+    ]
   }
 }
