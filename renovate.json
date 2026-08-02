@@ -6,6 +6,11 @@
     {
       "matchPackageNames": ["node"],
       "allowedVersions": "^24.0.0"
+    },
+    {
+      "matchManagers": ["mise"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "mise"
     }
   ],
   "mise": {
