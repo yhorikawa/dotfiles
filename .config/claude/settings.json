@@ -1,12 +1,97 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "advisorModel": "fable",
+  "alwaysThinkingEnabled": true,
   "cleanupPeriodDays": 99999,
+  "effortLevel": "xhigh",
+  "enabledPlugins": {
+    "agent-browser@agent-browser": true,
+    "claude-md-management@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "ponytail@ponytail": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "tsumiki@tsumiki": true
+  },
   "env": {
     "CLAUDE_CODE_AUTO_CONNECT_IDE": "false",
     "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "1",
     "CLAUDE_CODE_IDE_SKIP_VALID_CHECK": "1",
     "CLAUDE_CODE_NO_FLICKER": "1"
   },
+  "extraKnownMarketplaces": {
+    "agent-browser": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/vercel-labs/agent-browser.git"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "repo": "DietrichGebert/ponytail",
+        "source": "github"
+      }
+    },
+    "tsumiki": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/classmethod/tsumiki.git"
+      }
+    }
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "command": "printf '\\033]9;Claude Code: Waiting for input\\a\\a' > /dev/tty 2>/dev/null || true",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "~/dotfiles/.config/claude/hooks/plan-preview.sh",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "Write|Edit"
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash '~/.config/claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "printf '\\033]9;Claude Code: Task finished\\a\\a' > /dev/tty 2>/dev/null || true",
+            "type": "command"
+          }
+        ]
+      }
+    ]
+  },
+  "language": "japanese",
+  "model": "opusplan",
+  "outputStyle": "Explanatory",
   "permissions": {
     "allow": [
       "Bash(cargo add:*)",
@@ -159,6 +244,16 @@
       "Bash(pnpm lint:*)",
       "WebFetch"
     ],
+    "ask": [
+      "Bash(git config:*)",
+      "Bash(git push:*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset:*)",
+      "Bash(git restore:*)",
+      "Bash(git rm:*)",
+      "Bash(git switch:*)"
+    ],
+    "defaultMode": "auto",
     "deny": [
       "Bash(* .env*)",
       "Bash(* ~/.aws/*)",
@@ -218,95 +313,14 @@
       "Edit(**/*secrets*)",
       "Edit(id_ed25519)",
       "Edit(id_rsa)"
-    ],
-    "ask": [
-      "Bash(git config:*)",
-      "Bash(git push:*)",
-      "Bash(git rebase:*)",
-      "Bash(git reset:*)",
-      "Bash(git restore:*)",
-      "Bash(git rm:*)",
-      "Bash(git switch:*)"
-    ],
-    "defaultMode": "auto"
-  },
-  "model": "opusplan",
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/dotfiles/.config/claude/hooks/plan-preview.sh",
-            "timeout": 10
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "printf '\\033]9;Claude Code: Waiting for input\\a\\a' > /dev/tty 2>/dev/null || true"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "printf '\\033]9;Claude Code: Task finished\\a\\a' > /dev/tty 2>/dev/null || true"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '/Users/horikawa/.config/claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10
-          }
-        ]
-      }
     ]
   },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.config/claude/statusline.sh",
-    "padding": 0
-  },
-  "enabledPlugins": {
-    "claude-md-management@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true,
-    "context7@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
-    "figma@claude-plugins-official": true,
-    "pr-review-toolkit@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "tsumiki@tsumiki": true
-  },
-  "extraKnownMarketplaces": {
-    "tsumiki": {
-      "source": {
-        "source": "git",
-        "url": "https://github.com/classmethod/tsumiki.git"
-      }
-    }
-  },
-  "outputStyle": "Explanatory",
-  "language": "japanese",
+  "plansDirectory": "./z-ai/plans",
+  "preferredNotifChannel": "terminal_bell",
   "sandbox": {
-    "enabled": true,
     "autoAllowBashIfSandboxed": true,
+    "enabled": true,
+    "excludedCommands": ["docker:*"],
     "network": {
       "allowedDomains": [
         "github.com",
@@ -316,18 +330,17 @@
         "registry.yarnpkg.com",
         "pypi.org"
       ],
+      "allowLocalBinding": true,
       "allowUnixSockets": [
         "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-      ],
-      "allowLocalBinding": true
-    },
-    "enableWeakerNetworkIsolation": true
+      ]
+    }
   },
-  "alwaysThinkingEnabled": true,
-  "effortLevel": "xhigh",
-  "advisorModel": "opus",
-  "plansDirectory": "./z-ai/plans",
-  "verbose": true,
-  "preferredNotifChannel": "terminal_bell",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "statusLine": {
+    "command": "~/.config/claude/statusline.sh",
+    "padding": 0,
+    "type": "command"
+  },
+  "verbose": true
 }
