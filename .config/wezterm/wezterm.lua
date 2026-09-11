@@ -80,7 +80,24 @@ config.mouse_bindings = {
     event = { Down = { streak = 1, button = 'Left' } },
     mods = open_link_modifier,
     action = wezterm.action.Nop,
-  }
+  },
+
+  -- Same CMD-Click bindings for panes where the app captures the mouse
+  -- (e.g. Claude Code fullscreen TUI). Without mouse_reporting = true the
+  -- bindings above are skipped and the click is forwarded to the app, which
+  -- cannot see the CMD modifier and therefore never opens the link.
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = open_link_modifier,
+    mouse_reporting = true,
+    action = wezterm.action.OpenLinkAtMouseCursor,
+  },
+  {
+    event = { Down = { streak = 1, button = 'Left' } },
+    mods = open_link_modifier,
+    mouse_reporting = true,
+    action = wezterm.action.Nop,
+  },
 }
 
 config.keys = {
