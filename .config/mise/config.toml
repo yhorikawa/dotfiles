@@ -3,7 +3,7 @@ npm.bun = true
 install_before = "3d"
 
 [tools]
-bun = "1.4.0"
+bun = "1.4.2"
 github-cli = "2.100.0"
 go = "1.27.1"
 jq = "1.8.2"
@@ -21,7 +21,7 @@ shellcheck = "0.11.0"
 "github:Ryooooooga/zabrze" = "0.7.3"
 "github:sxyazi/yazi" = "26.9.1"
 "github:junegunn/fzf" = "0.74.3"
-"github:jesseduffield/lazygit" = "0.64.1"
+"github:jesseduffield/lazygit" = "0.65.0"
 "github:k1LoW/mo" = "1.6.7"
 "github:rossmacarthur/sheldon" = "0.8.5"
 "github:starship/starship" = "1.26.0"
