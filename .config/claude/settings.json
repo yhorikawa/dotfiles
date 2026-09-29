@@ -76,7 +76,7 @@
             "type": "command"
           }
         ],
-        "matcher": "*"
+        "matcher": "^(startup|resume|clear|compact|fork)$"
       }
     ],
     "Stop": [
@@ -91,7 +91,6 @@
     ]
   },
   "language": "japanese",
-  "model": "opusplan",
   "outputStyle": "Explanatory",
   "permissions": {
     "allow": [
@@ -321,7 +320,9 @@
   "sandbox": {
     "autoAllowBashIfSandboxed": true,
     "enabled": true,
-    "excludedCommands": ["docker:*"],
+    "excludedCommands": [
+      "docker:*"
+    ],
     "network": {
       "allowedDomains": [
         "github.com",
