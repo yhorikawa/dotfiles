@@ -17,6 +17,12 @@
 - Prefer **simple** solutions over easy ones.
 - Prefer **systematic problem-solving** over getting lost in configuration mazes.
 
+## Shell Tools
+
+- Use `rg` (ripgrep) instead of `grep`.
+- Use `fd` instead of `find`.
+- `agent-browser` is available for browser automation (navigation, form input, screenshots, scraping, web app testing).
+
 ## Using Subagents (Task tool)
 
 - Use subagents for small to medium-sized **self-contained** tasks.
