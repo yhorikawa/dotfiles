@@ -1,1 +1,8 @@
-exclude_untracked = true
+theme = "catppuccin-mocha"
+mode = "auto"
+line_numbers = true
+wrap_lines = false
+agent_notes = true
+watch = true
+transparent_background = true
+exclude_untracked = false
