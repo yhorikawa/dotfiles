@@ -324,6 +324,17 @@
       "docker:*",
       "herdr:*"
     ],
+    "filesystem": {
+      "allowWrite": [
+        "~/.local/share/pnpm",
+        "~/.local/state/pnpm",
+        "~/.cache/pnpm",
+        "~/Library/pnpm",
+        "~/Library/Caches/pnpm",
+        "/tmp",
+        "/private/tmp"
+      ]
+    },
     "network": {
       "allowedDomains": [
         "github.com",
