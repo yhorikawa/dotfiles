@@ -1,0 +1,7 @@
+git:
+  branchLogCmd: "git log --graph --color=always --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' {{branchName}} --"
+  diffRenderers:
+    - colorArg: always
+      command: delta --dark --paging=never --side-by-side
+  allBranchesLogCmds:
+    - git log --graph --color=always --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all
