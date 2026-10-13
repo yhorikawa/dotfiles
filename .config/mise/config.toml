@@ -1,6 +1,6 @@
 [settings]
 npm.bun = true
-install_before = "3d"
+minimum_release_age = "3d"
 
 [tools]
 bun = "1.4.2"
