@@ -170,8 +170,9 @@ height = "80%"
 # headless_cols = 120
 # headless_rows = 40
 
-# [worktrees]
-# directory = "~/.herdr/worktrees"
+[worktrees]
+# $XDG_DATA_HOME/herdr/worktrees
+directory = "~/.local/share/herdr/worktrees"
 
 [ui]
 # Sidebar width (auto-scaled based on workspace names, this sets the default)
