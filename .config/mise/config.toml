@@ -26,7 +26,7 @@ hunk = "0.22.0"
 "github:k1LoW/mo" = "1.6.8"
 "github:rossmacarthur/sheldon" = "0.8.5"
 "github:starship/starship" = "1.26.0"
-"github:burntsushi/ripgrep" = { version = "15.2.0", exe = "rg" }
+"github:burntsushi/ripgrep" = "15.2.0"
 "github:sharkdp/fd" = "10.5.0"
 "github:sharkdp/bat" = "0.26.1"
 "github:ClementTsang/bottom" = "0.14.9"
