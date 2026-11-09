@@ -12,3 +12,8 @@ if which sheldon > /dev/null; then
 fi
 
 export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
+
+# herdr は OSC 8 を描画できるが、Claude Code の対応端末判定に TERM_PROGRAM=herdr が含まれない
+if [[ $TERM_PROGRAM == herdr ]]; then
+  export FORCE_HYPERLINK=1
+fi
